@@ -1,0 +1,36 @@
+<div [formGroup]="group" [ngClass]="getClass('grid', 'control')">
+
+    <input pInputText #pInputText
+           [attr.accept]="model.accept"
+           [attr.max]="model.max"
+           [attr.min]="model.min"
+           [attr.multiple]="model.multiple"
+           [attr.step]="model.step"
+           [autocomplete]="model.autoComplete"
+           [autofocus]="model.autoFocus"
+           [dynamicList]="model.listId"
+           [formControlName]="model.id"
+           [id]="elementId"
+           [maxlength]="model.maxLength"
+           [minlength]="model.minLength"
+           [name]="model.name"
+           [ngClass]="getClass('element', 'control')"
+           [pattern]="model.pattern"
+           [readonly]="model.readOnly"
+           [required]="model.required"
+           [spellcheck]="model.spellCheck"
+           [tabindex]="model.tabIndex"
+           [type]="model.inputType"
+           (blur)="onBlur($event)"
+           (change)="onChange($event)"
+           (focus)="onFocus($event)"/>
+        
+        <label *ngIf="model.placeholder">{{model.placeholder}}</label>
+
+    <datalist *ngIf="model.hasList" [id]="model.listId">
+
+        <option *ngFor="let option of model.list$ | async" [value]="option">
+
+    </datalist>
+
+</div>

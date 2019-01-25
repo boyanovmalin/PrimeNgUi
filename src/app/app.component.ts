@@ -23,7 +23,7 @@ export class AppComponent {
       },
       "grid": {
           "container": "input-grid-container",
-          "control": "input-grid-control ui-float-label",
+          "control": "input-grid-control",
           "errors": "input-grid-errors",
           "group": "input-grid-group",
           "hint": "input-grid-hint",
@@ -31,7 +31,7 @@ export class AppComponent {
           "label": "input-grid-label",
           "option": "input-grid-option"
       }
-  }
+    }
   };
 
   json: any = [
