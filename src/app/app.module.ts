@@ -5,8 +5,10 @@ import { DynamicFormsCoreModule, DYNAMIC_FORM_CONTROL_MAP_FN, DynamicFormControl
 import { AppComponent } from './app.component';
 import { DynamicFormsPrimeNGUIModule } from '@ng-dynamic-forms/ui-primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AccordionModule, ButtonModule, PanelModule, RadioButtonModule, InputTextModule, CalendarModule, AutoCompleteModule } from 'primeng/primeng';
+import { AccordionModule, ButtonModule, PanelModule, RadioButtonModule, InputTextModule, CalendarModule, AutoCompleteModule, DropdownModule, InputMaskModule } from 'primeng/primeng';
 import { CustomDynamicPrimeNGInputComponent } from 'src/app/input/custom-dynamic-primeng-input.component';
+import { CustomDynamicPrimeNGFormGroupComponent } from 'src/app/form-group/custom-dynamic-primeng-form-group.component';
+import { CustomDynamicPrimeNGFormArrayComponent } from 'src/app/form-array/custom-dynamic-primeng-form-array.component';
 
 @NgModule({
   imports: [
@@ -23,11 +25,15 @@ import { CustomDynamicPrimeNGInputComponent } from 'src/app/input/custom-dynamic
     RadioButtonModule,
     InputTextModule,
     CalendarModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    DropdownModule,
+    InputMaskModule
   ],
   declarations: [
     AppComponent,
-    CustomDynamicPrimeNGInputComponent
+    CustomDynamicPrimeNGInputComponent,
+    CustomDynamicPrimeNGFormGroupComponent,
+    CustomDynamicPrimeNGFormArrayComponent
   ],
   providers: [
     {
@@ -36,13 +42,19 @@ import { CustomDynamicPrimeNGInputComponent } from 'src/app/input/custom-dynamic
         switch (model.type) {
           case 'INPUT':
             return CustomDynamicPrimeNGInputComponent;
+          case 'GROUP':
+            return CustomDynamicPrimeNGFormGroupComponent;
+          case 'ARRAY':
+            return CustomDynamicPrimeNGFormArrayComponent;
         }
       }
     }
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    CustomDynamicPrimeNGInputComponent
+    CustomDynamicPrimeNGInputComponent,
+    CustomDynamicPrimeNGFormGroupComponent,
+    CustomDynamicPrimeNGFormArrayComponent
   ]
 })
 export class AppModule { }

@@ -1,0 +1,37 @@
+<ng-container [formGroup]="group">
+
+    <p-accordion>
+    <div [ngClass]="getClass('grid', 'control')">
+
+        <div [formArrayName]="model.id" [id]="elementId" [ngClass]="getClass('element', 'control')">
+
+            <div *ngFor="let groupModel of model.groups; let idx = index" role="group"
+                 [formGroupName]="idx" [ngClass]="[getClass('element', 'group'), getClass('grid', 'group')]">
+
+                <p-accordionTab header="Array {{idx}}" [selected]="idx == 0">
+                <ng-container *ngTemplateOutlet="startTemplate?.templateRef; context: groupModel"></ng-container>
+
+                <dynamic-primeng-form-control *ngFor="let _model of groupModel.group"
+                                              [context]="groupModel"
+                                              [group]="control.at(idx)"
+                                              [hidden]="_model.hidden"
+                                              [layout]="layout"
+                                              [model]="_model"
+                                              [templates]="templates"
+                                              [ngClass]="[getClass('element', 'host', _model), getClass('grid', 'host', _model),
+                                                          getClass('element','children'), getClass('grid','children')]"
+                                              (blur)="onBlur($event)"
+                                              (change)="onChange($event)"
+                                              (focus)="onFocus($event)"
+                                              (pEvent)="onCustomEvent($event, null, true)"></dynamic-primeng-form-control>
+
+                <ng-container *ngTemplateOutlet="endTemplate?.templateRef; context: groupModel"></ng-container>
+                </p-accordionTab>
+            </div>
+
+        </div>
+
+    </div>
+    </p-accordion>
+
+</ng-container>
