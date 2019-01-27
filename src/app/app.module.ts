@@ -5,7 +5,7 @@ import { DynamicFormsCoreModule, DYNAMIC_FORM_CONTROL_MAP_FN, DynamicFormControl
 import { AppComponent } from './app.component';
 import { DynamicFormsPrimeNGUIModule } from '@ng-dynamic-forms/ui-primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AccordionModule, ButtonModule, PanelModule, RadioButtonModule, InputTextModule, CalendarModule } from 'primeng/primeng';
+import { AccordionModule, ButtonModule, PanelModule, RadioButtonModule, InputTextModule, CalendarModule, AutoCompleteModule } from 'primeng/primeng';
 import { CustomDynamicPrimeNGInputComponent } from 'src/app/input/custom-dynamic-primeng-input.component';
 
 @NgModule({
@@ -22,7 +22,8 @@ import { CustomDynamicPrimeNGInputComponent } from 'src/app/input/custom-dynamic
     ButtonModule,
     RadioButtonModule,
     InputTextModule,
-    CalendarModule
+    CalendarModule,
+    AutoCompleteModule
   ],
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { CustomDynamicPrimeNGInputComponent } from 'src/app/input/custom-dynamic
             return CustomDynamicPrimeNGInputComponent;
         }
       }
-    }],
+    }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     CustomDynamicPrimeNGInputComponent
